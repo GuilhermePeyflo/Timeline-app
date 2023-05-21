@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  front:
+    build: ./front-web/
+    env_file:
+      - ./front-web/.env.local
+    ports:
+      - "3000:3000"
+    
+  back: 
+    build: ./server/
+    env_file:
+      - ./server/.env
+    ports:
+      - "8000:8000"
