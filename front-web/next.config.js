@@ -2,7 +2,7 @@
 // exemplo de dados no images.domains: ["avatars.githubusercontent.com","localhost"]
 const nextConfig = {
     images: {
-        domains: JSON.parse(process.env.DOMAINS)
+        domains: ["avatars.githubusercontent.com", "localhost"]
     }
 }
 

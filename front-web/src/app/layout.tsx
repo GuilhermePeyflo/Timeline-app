@@ -3,7 +3,7 @@ import './globals.css'
 import { Roboto_Flex, Bai_Jamjuree } from 'next/font/google'
 import { Profile } from '@/components/Profile'
 import { Signin } from '@/components/signin'
-import { cookies } from 'next/headers'
+import { getUser } from '@/lib/auth'
 
 const roboto = Roboto_Flex({ subsets: ['latin'], variable: "--font-roboto" })
 const bai = Bai_Jamjuree({ subsets: ['latin'], weight: '700', variable: "--font-bai" })
@@ -18,7 +18,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const autenticated =  cookies().has('token')
+  const autenticated =  getUser()
 
 
   return (
@@ -31,7 +31,7 @@ export default function RootLayout({
             <div className='absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2 translate-x-1/2 rounded-full bg-purple-800 opacity-50 blur-full'></div>
             <div className='absolute right-0 bottom-0 top-0 w-2 bg-stripes'></div>
 
-            {autenticated ? <Profile/> : <Signin/>}
+            {autenticated ? <Profile user={autenticated}/> : <Signin/>}
             <Hero/>
             <div>
                 Guigo`s development

@@ -7,7 +7,11 @@ import multipart from "@fastify/multipart"
 import { uploadRoutes } from "./routes/upload"
 import { resolve } from "node:path"
 
-const app = fastify()
+const app = fastify({
+    logger:{
+        level: "info"
+    }
+})
 app.register(multipart)
 app.register(require('@fastify/static'), {
     root: resolve(__dirname, '../uploads'),

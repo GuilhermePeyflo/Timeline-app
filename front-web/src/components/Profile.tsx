@@ -1,10 +1,10 @@
 
-import Image from 'next/image';
-import { getUser } from './../lib/auth';
-import Link from 'next/link';
+import Image from 'next/image'
+import { User, getUser } from './../lib/auth'
+import Link from 'next/link'
 
-export function Profile() {
-    const {name, avatarUrl} = getUser()
+export function Profile({ user }) {
+    const {name, avatarUrl} = user
 
     return (
         <div className='flex items-center gap-3 text-left'>

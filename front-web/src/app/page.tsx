@@ -3,6 +3,7 @@ import dayjs from "dayjs"
 import { cookies } from "next/headers"
 import ptBr from 'dayjs/locale/pt-br'
 import Image from "next/image"
+import { getUser } from "@/lib/auth"
 
 interface Memory{
   id: string
@@ -14,9 +15,9 @@ interface Memory{
 dayjs.locale(ptBr)
 
 export default async function Home() {
-  const autenticated =  cookies().has('token')
+  const autenticated =  getUser()
   const videoExtensions = [".mp4", ".avi", ".mov"]; // alterar no backend para salvar o tipo da mídia no banco, caso exista, para usar como validação, ao invés de deixar no front
-
+  
   if (!autenticated){
       return (
         <div className="flex justify-center items-center h-screen">
