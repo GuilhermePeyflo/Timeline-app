@@ -1,4 +1,3 @@
-### Projeto não Finalizado
 ## Getting Started
 
 ## Executando o projeto local
